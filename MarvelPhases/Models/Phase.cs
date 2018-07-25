@@ -9,6 +9,7 @@ namespace MarvelPhases.Models
 {
     public class Phase
     {
+        [DisplayName("Phase")]
         public int Id { get; set; }
         [DisplayName("Phase Name")]
         public string PhaseName { get; set; }

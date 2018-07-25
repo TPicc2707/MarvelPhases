@@ -1,6 +1,7 @@
 ﻿using MarvelPhases.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -20,7 +21,8 @@ namespace MarvelPhases.Controllers
         // GET: Movies
         public ActionResult Index()
         {
-            return View();
+            var movie = db.Movies.Include(m => m.Phase);
+            return View(movie.ToList());
         }
 
         // GET: Movies/Details/5

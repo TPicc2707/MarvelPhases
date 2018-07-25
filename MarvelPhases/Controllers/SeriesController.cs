@@ -21,7 +21,8 @@ namespace MarvelPhases.Controllers
         // GET: Series
         public ActionResult Index()
         {
-            return View();
+            var series = db.Series.Include(m => m.Phase);
+            return View(series.ToList());
         }
 
         // GET: Series/Details/5

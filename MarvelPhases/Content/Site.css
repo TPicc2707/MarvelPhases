@@ -30,13 +30,13 @@ textarea {
 
 nav.navbar-findcond {
     background: #fff;
-    border-color: #8A2BE2;
-    box-shadow: 0 0 2px 0 #8A2BE2;
+    border-color: red;
+    box-shadow: 0 0 2px 0 red;
     font-family: 'Cabin', sans-serif;
 }
 
 nav.navbar-findcond a {
-   color: #8A2BE2;
+   color: red;
    font-size: 20px;
    font-family: 'Cabin', sans-serif;
    line-height: 20px;
@@ -48,7 +48,7 @@ nav.navbar-findcond a:hover {
 }
 
 nav.navbar-findcond ul.navbar-nav a {
-   color: #8A2BE2;
+   color: red;
    border-style: solid;
    border-width: 0 0 2px 0;
    border-color: #fff;
@@ -62,7 +62,7 @@ nav.navbar-findcond ul.navbar-nav a:active {
 }
 
 nav.navbar-findcond ul.navbar-nav a:hover {
-  border-color: #8A2BE2;
+  border-color: red;
   color: black;
   transform: scale(1.5);
 } 
@@ -72,7 +72,7 @@ nav.navbar-findcond li.divider {
 }
 
 nav.navbar-findcond button.navbar-toggle {
-  background: #8A2BE2;
+  background: red;
   border-radius: 2px;
 }
 
@@ -97,12 +97,12 @@ nav.navbar-findcond ul.dropdown-menu > li > a {
 }
 
 nav.navbar-findcond ul.dropdown-menu > li > a:hover {
-  background: #8A2BE2;
+  background: red;
   color: #fff;
 }
 
 nav.navbar-findcond span.badge {
-  background: #8A2BE2;
+  background: red;
   font-weight: normal;
   font-size: 11px;
   margin: 0 4px;
@@ -143,11 +143,11 @@ nav.navbar-findcond span.badge.new {
    background-repeat: no-repeat;
    background-size: cover;
    opacity: 0;
-   animation: images 18s linear infinite;
-   -moz-animation: images 18s linear infinite;
-   -ms-animation: images 18s linear infinite;
-   -o-animation: images 18s linear infinite;
-   -webkit-animation: images 18s linear infinite;
+   animation: images 24s linear infinite;
+   -moz-animation: images 24s linear infinite;
+   -ms-animation: images 24s linear infinite;
+   -o-animation: images 24s linear infinite;
+   -webkit-animation: images 24s linear infinite;
 }
 
 .backgroundslider li:nth-child(1) {
@@ -251,8 +251,8 @@ nav.navbar-findcond span.badge.new {
    -webkit-animation: images 18s linear infinite;
 }
 
-backgroundslider2 li:nth-child(1) {
-    background-image: url("../IMG/captianamerica.jpg")
+.backgroundslider2 li:nth-child(1) {
+    background-image: url("../IMG/captianamerica.jpg");
 }
 
 .backgroundslider2 li:nth-child(2) {
@@ -522,10 +522,135 @@ backgroundslider2 li:nth-child(1) {
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     cursor: pointer;
+    margin: 30px;
 }
 
 .backbutton:hover {
     background-color: white;
     color: black;
+}
+
+#list {
+    width: 80%;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+#list table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    opacity: 0.75;
+}
+
+#list th, td
+{
+    padding: 10px;
+    text-align: center;
+}
+
+#list th {
+    background-color: black;
+    color: white;
+}
+
+#list tr:nth-child(even) {
+    background-color: #e8e8e8;
+
+}
+
+#list tr:nth-child(odd) {
+    background-color: white;
+}
+
+#header {
+    background-color: red;
+    color:white;
+}
+
+/*Media query for Roster and Stats Table*/
+@media (max-width: 800px) {
+     #list {
+      max-width: 300px;
+  }
+
+
+}
+
+.form-signin {
+  max-width: 420px;
+  padding: 30px 38px;
+  margin: 4% auto;
+  background-color: #eee;
+  border: 3px dotted rgba(0,0,0,0.1);
+
+  }
+
+.form-signin-heading {
+  text-align:center;
+  margin-bottom: 30px;
+}
+
+.form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+}
+
+input[type="text"] {
+  margin-bottom: 0px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+input[type="password"] {
+  margin-bottom: 0px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+
+.colorgraph {
+  height: 7px;
+  border-top: 0;
+  background: red;
+  border-radius: 5px;
+}
+.img-responsive
+{
+    display: block;
+    height: auto;
+    max-width: 75%;
+    padding: 15px;
+    margin-right: 5px;
+}
+.socialicons 
+{
+    list-style: none;
+    text-decoration:none;
+    display:inline-block;  
+    float: right;
+    position: relative;
+    bottom: -2px;
+}
+
+.btn-wrapper
+{
+    text-align: center;
+    padding: 10px;
+}
+
+.panel-body .alignment {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.panel-body
+{
+    display:table;
+    width: auto;
+    margin-left: auto ;
+    margin-right: auto ;
+    
 }
 

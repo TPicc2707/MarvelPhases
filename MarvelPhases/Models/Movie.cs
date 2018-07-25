@@ -16,7 +16,7 @@ namespace MarvelPhases.Models
         [DisplayName("Release Date")]
         public DateTime ReleaseDate { get; set; }
         public string Description { get; set; }
-        [DisplayName("Program ID")]
+        [DisplayName("Phase ID")]
         public int PhaseId { get; set; }
         public decimal Rating { get; set; }
         [DisplayName("Box Office")]
