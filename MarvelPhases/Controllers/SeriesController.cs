@@ -1,6 +1,9 @@
-﻿using System;
+﻿using MarvelPhases.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -8,6 +11,13 @@ namespace MarvelPhases.Controllers
 {
     public class SeriesController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
+        public ActionResult Home()
+        {
+            return View();
+        } 
+
         // GET: Series
         public ActionResult Index()
         {
@@ -15,75 +25,117 @@ namespace MarvelPhases.Controllers
         }
 
         // GET: Series/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Series series = db.Series.Find(id);
+
+            if (series == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(series);
         }
+
 
         // GET: Series/Create
         public ActionResult Create()
         {
+            ViewBag.PhaseId = new SelectList(db.Phases, "Id", "PhaseName");
             return View();
         }
 
         // POST: Series/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Id,Title,SeriesNumber,ReleaseDate,Description,PhaseId,Rating,TvService")] Series series)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
+                db.Series.Add(series);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            ViewBag.PhaseId = new SelectList(db.Phases, "Id", "PhaseName", series.PhaseId);
+
+            return View(series);
         }
 
+
         // GET: Series/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Series series = db.Series.Find(id);
+            if (series == null)
+            {
+                return HttpNotFound();
+            }
+
+            ViewBag.PhaseId = new SelectList(db.Phases, "Id", "PhaseName", series.PhaseId);
+
+            return View(series);
         }
 
         // POST: Series/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id,Title,SeriesNumber,ReleaseDate,Description,PhaseId,Rating,TvService")] Series series)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
+                db.Entry(series).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            ViewBag.PhaseId = new SelectList(db.Phases, "Id", "PhaseName", series.PhaseId);
+
+            return View(series);
         }
 
         // GET: Series/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Series series = db.Series.Find(id);
+            if (series == null)
+            {
+                return HttpNotFound();
+            }
+            return View(series);
         }
 
         // POST: Series/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            Series series = db.Series.Find(id);
+            db.Series.Remove(series);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
-                return RedirectToAction("Index");
-            }
-            catch
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
             {
-                return View();
+                db.Dispose();
             }
+            base.Dispose(disposing);
         }
     }
 }

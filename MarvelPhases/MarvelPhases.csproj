@@ -262,6 +262,9 @@
     <Content Include="Views\Series\Details.cshtml" />
     <Content Include="Views\Series\Edit.cshtml" />
     <Content Include="Views\Series\Index.cshtml" />
+    <Content Include="Views\Movies\Home.cshtml" />
+    <Content Include="Views\Phases\Home.cshtml" />
+    <Content Include="Views\Series\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

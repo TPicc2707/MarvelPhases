@@ -12,6 +12,11 @@ namespace MarvelPhases.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        public ActionResult Home()
+        {
+            return View();
+        }
+
          // GET: Phases
         public ActionResult Index()
         {

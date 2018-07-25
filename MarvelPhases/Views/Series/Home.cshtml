@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @{
+        ViewBag.Title = "Marvel Series";
+        @Styles.Render("~/Content/Site.css")
+        @Styles.Render("~/Content/bootstrap.css")
+        @Scripts.Render("~/bundles/modernizr")
+    }
+</head>
+<body>
+    <div class="container">
+        <ul class="backgroundslider3">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div>
+        <a class="backbutton" href="@Url.Action("Index","Home")">Back Home</a>
+        <h1 style="text-align: center; font-weight: bold; color: white;">Marvel Series</h1>
+    </div>
+    <div style="text-align: center; ">
+        <a class="button button1" href="@Url.Action("#","#")">All Series</a>
+        <a class="button button2" href="@Url.Action("#","#")">Phase 1</a>
+        <a class="button button3" href="@Url.Action("#","#")">Phase 2</a>
+        <a class="button button4" href="@Url.Action("#","#")">Phase 3</a>
+    </div>
+</body>
+</html>

@@ -1,6 +1,8 @@
-﻿using System;
+﻿using MarvelPhases.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -8,6 +10,13 @@ namespace MarvelPhases.Controllers
 {
     public class MoviesController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
+        public ActionResult Home()
+        {
+            return View();
+        }
+
         // GET: Movies
         public ActionResult Index()
         {
@@ -15,75 +24,115 @@ namespace MarvelPhases.Controllers
         }
 
         // GET: Movies/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Movie movie = db.Movies.Find(id);
+
+            if (movie == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(movie);
         }
 
         // GET: Movies/Create
         public ActionResult Create()
         {
+            ViewBag.PhaseId = new SelectList(db.Phases, "Id", "PhaseName");
             return View();
         }
 
         // POST: Movies/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Id,Title,CollectionNumber,ReleaseDate,Description,PhaseId,Rating,BoxOffice")] Movie movie)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
+                db.Movies.Add(movie);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            ViewBag.PhaseId = new SelectList(db.Phases, "Id", "PhaseName", movie.PhaseId);
+
+            return View(movie);
         }
 
         // GET: Movies/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Movie movie = db.Movies.Find(id);
+            if (movie == null)
+            {
+                return HttpNotFound();
+            }
+
+            ViewBag.PhaseId = new SelectList(db.Phases, "Id", "PhaseName", movie.PhaseId);
+
+            return View(movie);
         }
 
         // POST: Movies/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id,Title,CollectionNumber,ReleaseDate,Description,PhaseId,Rating,BoxOffice")] Movie movie)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
+                db.Entry(movie).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            ViewBag.PhaseId = new SelectList(db.Phases, "Id", "PhaseName", movie.PhaseId);
+
+            return View(movie);
         }
 
         // GET: Movies/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Movie movie = db.Movies.Find(id);
+            if (movie == null)
+            {
+                return HttpNotFound();
+            }
+            return View(movie);
         }
 
         // POST: Movies/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            Movie movie = db.Movies.Find(id);
+            db.Movies.Remove(movie);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
-                return RedirectToAction("Index");
-            }
-            catch
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
             {
-                return View();
+                db.Dispose();
             }
+            base.Dispose(disposing);
         }
     }
 }

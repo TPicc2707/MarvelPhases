@@ -1,4 +1,9 @@
-﻿body {
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -22,3 +27,505 @@ select,
 textarea {
     max-width: 280px;
 }
+
+nav.navbar-findcond {
+    background: #fff;
+    border-color: #8A2BE2;
+    box-shadow: 0 0 2px 0 #8A2BE2;
+    font-family: 'Cabin', sans-serif;
+}
+
+nav.navbar-findcond a {
+   color: #8A2BE2;
+   font-size: 20px;
+   font-family: 'Cabin', sans-serif;
+   line-height: 20px;
+}
+
+nav.navbar-findcond a:hover {
+   color: black;
+   transform: scale(1.5);
+}
+
+nav.navbar-findcond ul.navbar-nav a {
+   color: #8A2BE2;
+   border-style: solid;
+   border-width: 0 0 2px 0;
+   border-color: #fff;
+}
+
+nav.navbar-findcond ul.navbar-nav a:hover,
+nav.navbar-findcond ul.navbar-nav a:visited,
+nav.navbar-findcond ul.navbar-nav a:focus,
+nav.navbar-findcond ul.navbar-nav a:active {
+  background: #fff;
+}
+
+nav.navbar-findcond ul.navbar-nav a:hover {
+  border-color: #8A2BE2;
+  color: black;
+  transform: scale(1.5);
+} 
+
+nav.navbar-findcond li.divider {
+  background: #ccc;
+}
+
+nav.navbar-findcond button.navbar-toggle {
+  background: #8A2BE2;
+  border-radius: 2px;
+}
+
+nav.navbar-findcond button.navbar-toggle:hover {
+  background: #999;
+}
+
+nav.navbar-findcond button.navbar-toggle > span.icon-bar {
+  background: #fff;
+}
+
+nav.navbar-findcond ul.dropdown-menu {
+  border: 0;
+  background: #fff;
+  border-radius: 4px;
+  margin: 4px 0;
+  box-shadow: 0 0 4px 0 #ccc;
+}
+
+nav.navbar-findcond ul.dropdown-menu > li > a {
+  color: #444;
+}
+
+nav.navbar-findcond ul.dropdown-menu > li > a:hover {
+  background: #8A2BE2;
+  color: #fff;
+}
+
+nav.navbar-findcond span.badge {
+  background: #8A2BE2;
+  font-weight: normal;
+  font-size: 11px;
+  margin: 0 4px;
+}
+
+nav.navbar-findcond span.badge.new {
+  background: rgba(255, 0, 0, 0.8);
+  color: #fff;
+}
+.logo {
+    display: inline-block;
+    vertical-align: top;
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+    margin-top: 15px;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+.backgroundslider {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+}
+
+.backgroundslider li {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   background-position: center center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   opacity: 0;
+   animation: images 18s linear infinite;
+   -moz-animation: images 18s linear infinite;
+   -ms-animation: images 18s linear infinite;
+   -o-animation: images 18s linear infinite;
+   -webkit-animation: images 18s linear infinite;
+}
+
+.backgroundslider li:nth-child(1) {
+   background-image: url("../IMG/ironman.jpg")
+}
+
+.backgroundslider li:nth-child(2) {
+   background-image: url("../IMG/blackpanther.jpg");
+   animation-delay: 6s;
+   -moz-animation-delay: 6s;
+   -ms-animation-delay: 6s;
+   -o-animation-delay: 6s;
+   -webkit-animation-delay: 6s;
+ }
+
+.backgroundslider li:nth-child(3) {
+  background-image: url("../IMG/daredevil.jpg");
+  animation-delay: 12s;
+  -moz-animation-delay: 12s;
+  -ms-animation-delay: 12s;
+  -o-animation-delay: 12s;
+  -webkit-animation-delay: 12s;
+}
+
+.backgroundslider li:nth-child(4) {
+  background-image: url("../IMG/avengersinfinitywar.jpg");
+  animation-delay: 18s;
+  -moz-animation-delay: 18s;
+  -ms-animation-delay: 18s;
+  -o-animation-delay: 18s;
+  -webkit-animation-delay: 18s;
+}
+
+.backgroundslider1 {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+}
+
+.backgroundslider1 li {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0;
+    animation: images 18s linear infinite;
+    -moz-animation: images 18s linear infinite;
+    -ms-animation: images 18s linear infinite;
+    -o-animation: images 18s linear infinite;
+    -webkit-animation: images 18s linear infinite;
+}
+
+.backgroundslider1 li:nth-child(1) {
+    background-image: url("../IMG/thor.jpg")
+}
+
+.backgroundslider1 li:nth-child(2) {
+    background-image: url("../IMG/guardiansofgalaxy.jpg");
+    animation-delay: 6s;
+    -moz-animation-delay: 6s;
+    -ms-animation-delay: 6s;
+    -o-animation-delay: 6s;
+    -webkit-animation-delay: 6s;
+}
+
+.backgroundslider1 li:nth-child(3) {
+   background-image: url("../IMG/doctorstrange.jpg");
+   animation-delay: 12s;
+   -moz-animation-delay: 12s;
+   -ms-animation-delay: 12s;
+   -o-animation-delay: 12s;
+   -webkit-animation-delay: 12s;
+}
+
+.backgroundslider2 {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+}
+
+.backgroundslider2 li {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   background-position: center center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   opacity: 0;
+   animation: images 18s linear infinite;
+   -moz-animation: images 18s linear infinite;
+   -ms-animation: images 18s linear infinite;
+   -o-animation: images 18s linear infinite;
+   -webkit-animation: images 18s linear infinite;
+}
+
+backgroundslider2 li:nth-child(1) {
+    background-image: url("../IMG/captianamerica.jpg")
+}
+
+.backgroundslider2 li:nth-child(2) {
+    background-image: url("../IMG/antman.jpg");
+    animation-delay: 6s;
+    -moz-animation-delay: 6s;
+    -ms-animation-delay: 6s;
+    -o-animation-delay: 6s;
+    -webkit-animation-delay: 6s;
+}
+
+.backgroundslider2 li:nth-child(3) {
+  background-image: url("../IMG/spiderman.jpg");
+  animation-delay: 12s;
+  -moz-animation-delay: 12s;
+  -ms-animation-delay: 12s;
+  -o-animation-delay: 12s;
+  -webkit-animation-delay: 12s;
+}
+
+.backgroundslider3 {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+}
+
+.backgroundslider3 li {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   background-position: center center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   opacity: 0;
+   animation: images 18s linear infinite;
+   -moz-animation: images 18s linear infinite;
+   -ms-animation: images 18s linear infinite;
+   -o-animation: images 18s linear infinite;
+   -webkit-animation: images 18s linear infinite;
+}
+
+.backgroundslider3 li:nth-child(1) {
+   background-image: url("../IMG/agentcarter.jpg")
+}
+
+.backgroundslider3 li:nth-child(2) {
+   background-image: url("../IMG/lukecage.jpg");
+   animation-delay: 6s;
+   -moz-animation-delay: 6s;
+   -ms-animation-delay: 6s;
+   -o-animation-delay: 6s;
+   -webkit-animation-delay: 6s;
+}
+
+.backgroundslider3 li:nth-child(3) {
+   background-image: url("../IMG/ironfist.jpg");
+   animation-delay: 12s;
+   -moz-animation-delay: 12s;
+   -ms-animation-delay: 12s;
+   -o-animation-delay: 12s;
+   -webkit-animation-delay: 12s;
+}
+
+@keyframes images {
+    0% {
+        opacity: 0;
+        animation-timing-function: ease-in;
+    }
+
+    10% {
+        opacity: 1;
+        animation-timing-function: ease-out;
+    }
+
+    25% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0;
+        transform: scale(1) rotate(20deg);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes images {
+    0% {
+        opacity: 0;
+        animation-timing-function: ease-in;
+    }
+
+    10% {
+        opacity: 1;
+        animation-timing-function: ease-out;
+    }
+
+    25% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0;
+        transform: scale(1) rotate(20deg);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@-o-keyframes images {
+    0% {
+        opacity: 0;
+        animation-timing-function: ease-in;
+    }
+
+    10% {
+        opacity: 1;
+        animation-timing-function: ease-out;
+    }
+
+    25% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0;
+        transform: scale(1) rotate(20deg);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@-ms-keyframes images {
+    0% {
+        opacity: 0;
+        animation-timing-function: ease-in;
+    }
+
+    10% {
+        opacity: 1;
+        animation-timing-function: ease-out;
+    }
+
+    25% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0;
+        transform: scale(1) rotate(20deg);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes images {
+    0% {
+        opacity: 0;
+        animation-timing-function: ease-in;
+    }
+
+    10% {
+        opacity: 1;
+        animation-timing-function: ease-out;
+    }
+
+    25% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0;
+        transform: scale(1) rotate(20deg);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.button {
+    font-weight: bold;
+    border-radius: 12px;
+    width: 75%;
+    border: none;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 20px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button1 {
+    background-color: red;
+    color: black;
+    margin: 100px auto 50px;
+}
+
+.button1:hover {
+   background-color: white;
+   color: black;
+}
+
+.button2 {
+    background-color: red;
+    color: black;
+    margin: 50px auto;
+}
+
+.button2:hover {
+    background-color: white;
+    color: black;
+}
+
+.button3 {
+    background-color: red;
+    color: black;   
+    margin: 50px auto;
+}
+
+.button3:hover {
+    background-color: white;
+    color: black;
+}
+
+.button4 {
+    background-color: red;
+    color: black;   
+    margin: auto;
+}
+
+.button4:hover {
+    background-color: white;
+    color: black;
+}
+
+.backbutton {
+    background-color: red;
+    color: black;
+    font-weight: bold;
+    border-radius: 12px;
+    width: 25%;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    padding: 16px;
+    font-size: 12px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.backbutton:hover {
+    background-color: white;
+    color: black;
+}
+
