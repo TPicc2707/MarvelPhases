@@ -6,7 +6,7 @@
     @{
         ViewBag.Title = "Marvel Series";
         @Styles.Render("~/Content/Site.css")
-        @Styles.Render("~/Content/bootstrap.css")
+        @Styles.Render("~/Content/bootstrap.css")          @*Main Styling*@
         @Scripts.Render("~/bundles/modernizr")
     }
 </head>
@@ -14,19 +14,19 @@
     <div class="container">
         <ul class="backgroundslider3">
             <li></li>
-            <li></li>
+            <li></li>                            @*Picture carousel*@
             <li></li>
             <li></li>
         </ul>
     </div>
     <div>
-        <h1 style="text-align: center; font-weight: bold; color: white;">Marvel Series</h1>
+        <h1 style="text-align: center; font-weight: bold; color: white;">Marvel Series</h1>  @*Header*@
     </div>
     <div style="text-align: center; ">
-        <a class="button button1" href="@Url.Action("Index","Series")">All Series</a>
-        @Html.ActionLink("Phase 1", "SortPhase", "Series", new { phaseThreshold = 1 }, new { @class = "button button2" })
-        @Html.ActionLink("Phase 2", "SortPhase", "Series", new { phaseThreshold = 2 }, new { @class = "button button3" })
-        @Html.ActionLink("Phase 3", "SortPhase", "Series", new { phaseThreshold = 3 }, new { @class = "button button4" })
+        <a class="button button1" href="@Url.Action("Index","Series")">All Series</a>  @*Link to All Seires*@
+        @Html.ActionLink("Phase 1", "SortPhase", "Series", new { phaseThreshold = 1 }, new { @class = "button button2" })  @*Link to Phase 1 Series*@
+        @Html.ActionLink("Phase 2", "SortPhase", "Series", new { phaseThreshold = 2 }, new { @class = "button button3" })  @*Link to Phase 2 Series*@
+        @Html.ActionLink("Phase 3", "SortPhase", "Series", new { phaseThreshold = 3 }, new { @class = "button button4" })  @*Link to Phase 3 Series*@
     </div>
 </body>
 </html>

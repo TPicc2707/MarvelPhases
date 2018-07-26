@@ -7,7 +7,7 @@
 <style>
     th {
         padding: 5px;
-        text-align: left;
+        text-align: left;   @*Styling table*@
         width: 30%;
     }
 
@@ -18,18 +18,19 @@
 </style>
 
 <div>
+    @*Table*@
     <table id="list" style="margin: 30px; width: 100%">
         <tr>
             <th colspan="2">
-                <h1 style="text-align: center">Phase</h1>
+                <h1 style="text-align: center">Phase</h1>  @*Table Header*@
             </th>
         </tr>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.PhaseName)
+                @Html.DisplayNameFor(model => model.PhaseName)  @*Row Header*@
             </th>
             <td>
-                @Html.DisplayFor(model => model.PhaseName)
+                @Html.DisplayFor(model => model.PhaseName)  @*Row Data*@
             </td>
         </tr>
 
@@ -40,8 +41,8 @@
             @Html.AntiForgeryToken()
 
             <div class="form-actions no-color">
-                <input type="submit" value="Delete" class="btn btn-danger" /> 
-                <a class="backbutton" href="@Url.Action("Index", "Phases")">Go Back</a>
+                <input type="submit" value="Delete" class="btn btn-danger" />  @*Delete Button*@
+                <a class="backbutton" href="@Url.Action("Index", "Phases")">Go Back</a>  @*Back Button*@
             </div>
         }
     </div>

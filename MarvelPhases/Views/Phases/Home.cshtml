@@ -6,7 +6,7 @@
     @{
         ViewBag.Title = "Marvel Phases";
         @Styles.Render("~/Content/Site.css")
-        @Styles.Render("~/Content/bootstrap.css")
+        @Styles.Render("~/Content/bootstrap.css")    @*Main Styling*@
         @Scripts.Render("~/bundles/modernizr")
     }
 </head>
@@ -15,15 +15,15 @@
         <ul class="backgroundslider1">
             <li></li>
             <li></li>
-            <li></li>
+            <li></li>               @*Picture carousel*@
             <li></li>
         </ul>
     </div>
     <div>
-        <h1 style="text-align: center; font-weight: bold; color: white;">Marvel Phases</h1>
+        <h1 style="text-align: center; font-weight: bold; color: white;">Marvel Phases</h1>   @*Header*@
     </div>
     <div style="text-align: center; ">
-        <a class="button button1" href="@Url.Action("Index","Phases")">All Phases</a>
-    </div>
+        <a class="button button1" href="@Url.Action("Index","Phases")">All Phases</a>  @*Link to All Phases*@
+    </div> 
 </body>
 </html>

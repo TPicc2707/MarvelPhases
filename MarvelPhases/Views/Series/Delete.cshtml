@@ -6,7 +6,7 @@
 <style>
     th {
         padding: 5px;
-        text-align: left;
+        text-align: left;    @*Styling table*@
         width: 30%;
     }
 
@@ -16,18 +16,19 @@
     }
 </style>
 <div>
+    @*Table*@
     <table id="list" style="margin: 30px; width: 100%">
         <tr>
             <th colspan="2">
-                <h1 style="text-align: center">@Html.DisplayFor(model => model.Title)</h1>
+                <h1 style="text-align: center">@Html.DisplayFor(model => model.Title)</h1>   @*Table Header*@
             </th>
         </tr>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.SeriesNumber)
+                @Html.DisplayNameFor(model => model.SeriesNumber)   @*Row Header*@
             </th>
             <td>
-                @Html.DisplayFor(model => model.SeriesNumber)
+                @Html.DisplayFor(model => model.SeriesNumber)   @*Row Data*@
             </td>
         </tr>
         <tr>
@@ -67,9 +68,9 @@
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color" style="margin: 30px;">
-            <input type="submit" value="Delete" class="btn btn-danger" /> 
-            <a class="backbutton" href="@Url.Action("Index","Series")">Go Back</a>
+        <div class="form-actions no-color" style="margin: 30px;"> 
+            <input type="submit" value="Delete" class="btn btn-danger" />   @*Delete Button*@
+            <a class="backbutton" href="@Url.Action("Index","Series")">Go Back</a>  @*Back Button*@
         </div>
     }
 </div>

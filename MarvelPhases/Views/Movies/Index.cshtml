@@ -3,11 +3,13 @@
 @{
     ViewBag.Title = "Index";
 }
+@*Back button*@
 <div style="margin: 30px 5px;">
     <a class="backbutton" href="@Url.Action("Home","Movies")">Go Back</a>
     <a class="backbutton" href="@Url.Action("Create","Movies")">New Movie</a>
     @using (Html.BeginForm())
     {
+        @*Search Box*@
         <p style="text-align: right">
             Find by name: @Html.TextBox("SearchString")
             <input type="submit" value="Search" />
@@ -16,11 +18,11 @@
 </div>
 <table id="list" align="center">
     <tr>
-        <td colspan="6" id="header"><h1>All Movies</h1></td>
+        <td colspan="6" id="header"><h1>All Movies</h1></td> @*Header*@
     </tr>
     <tr>
         <th>
-            @Html.ActionLink("Title", "Index", new { sortOrder = ViewBag.SortTitle })
+            @Html.ActionLink("Title", "Index", new { sortOrder = ViewBag.SortTitle })  @*Sort Link*@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CollectionNumber)
@@ -29,14 +31,14 @@
             @Html.DisplayNameFor(model => model.Phase.Id)
         </th>
         <th>
-            @Html.ActionLink("Rating", "Index", new { sortOrder = ViewBag.SortRating })
+            @Html.ActionLink("Rating", "Index", new { sortOrder = ViewBag.SortRating })  @*Sort Link*@
         </th>
         <th>
-            @Html.ActionLink("Box Office", "Index", new { sortOrder = ViewBag.SortBoxOffice })
+            @Html.ActionLink("Box Office", "Index", new { sortOrder = ViewBag.SortBoxOffice })  @*Sort Link*@
         </th>
         <th></th>
     </tr>
-
+    @*Data for Movies*@
 @foreach (var item in Model) {
     <tr>
         <td>

@@ -3,22 +3,22 @@
 @{
     ViewBag.Title = "Index";
 }
-
+@*Back button*@
 <div style="margin: 30px 5px;">
     <a class="backbutton" href="@Url.Action("Home","Phases")">Go Back</a>
     <a class="backbutton" href="@Url.Action("Create","Phases")">New Phase</a>
 </div>
 <table id="list" align="center">
     <tr>
-        <td colspan="6" id="header"><h1>All Phases</h1></td>
+        <td colspan="6" id="header"><h1>All Phases</h1></td>  @*Header*@
     </tr>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.PhaseName)
+            @Html.DisplayNameFor(model => model.PhaseName)  @*Column Header*@
         </th>
         <th></th>
     </tr>
-
+    @*Data for Movies*@
     @foreach (var item in Model)
     {
         <tr>

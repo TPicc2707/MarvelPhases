@@ -3,11 +3,12 @@
 @{
     ViewBag.Title = "Index";
 }
-
+@*Back button*@
 <div style="margin: 30px 5px;">
-    <a class="backbutton" href="@Url.Action("Home","Movies")">Go Back</a>
+    <a class="backbutton" href="@Url.Action("Home","Movies")">Go Back</a> 
     @using (Html.BeginForm())
     {
+        @*Search Box*@
         <p style="text-align: right">
             Find by name: @Html.TextBox("SearchString")
             <input type="submit" value="Search" />
@@ -16,14 +17,14 @@
 </div>
 <table id="list" align="center">
     <tr>
-        <td colspan="6" id="header"><h1>Movies</h1></td>
+        <td colspan="6" id="header"><h1>Movies</h1></td>  @*Header*@
     </tr>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Title)
+            @Html.DisplayNameFor(model => model.Title)  @*Column Header*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CollectionNumber)
+            @Html.DisplayNameFor(model => model.CollectionNumber)       
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Phase.Id)
@@ -36,7 +37,7 @@
         </th>
         <th></th>
     </tr>
-
+    @*Data for Movie*@
     @foreach (var item in Model)
     {
         <tr>
