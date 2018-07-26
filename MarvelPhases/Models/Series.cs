@@ -12,8 +12,6 @@ namespace MarvelPhases.Models
         public string Title { get; set; }
         [DisplayName("Series Number")]
         public int SeriesNumber { get; set; }
-        [DisplayName("Release Date")]
-        public DateTime ReleaseDate { get; set; }
         public string Description { get; set; }
         [DisplayName("Phase ID")]
         public int PhaseId { get; set; }

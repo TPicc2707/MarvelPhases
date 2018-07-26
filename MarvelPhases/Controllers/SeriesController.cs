@@ -54,7 +54,7 @@ namespace MarvelPhases.Controllers
         // POST: Series/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,SeriesNumber,ReleaseDate,Description,PhaseId,Rating,TvService")] Series series)
+        public ActionResult Create([Bind(Include = "Id,Title,SeriesNumber,Description,PhaseId,Rating,TvService")] Series series)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace MarvelPhases.Controllers
         // POST: Series/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,SeriesNumber,ReleaseDate,Description,PhaseId,Rating,TvService")] Series series)
+        public ActionResult Edit([Bind(Include = "Id,Title,SeriesNumber,Description,PhaseId,Rating,TvService")] Series series)
         {
             if (ModelState.IsValid)
             {

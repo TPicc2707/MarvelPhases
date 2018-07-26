@@ -4,8 +4,9 @@
     ViewBag.Title = "Index";
 }
 
-<div style="margin: 30px;">
+<div style="margin: 30px 5px;">
     <a class="backbutton" href="@Url.Action("Home","Series")">Go Back</a>
+    <a class="backbutton" href="@Url.Action("Create","Series")">New Series</a>
 </div>
 <table id="list" align="center">
     <tr>
@@ -17,9 +18,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.SeriesNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ReleaseDate)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Phase.Id)
@@ -41,9 +39,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SeriesNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReleaseDate)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Phase.Id)

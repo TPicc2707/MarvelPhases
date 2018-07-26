@@ -53,7 +53,7 @@ namespace MarvelPhases.Controllers
         // POST: Movies/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,CollectionNumber,ReleaseDate,Description,PhaseId,Rating,BoxOffice")] Movie movie)
+        public ActionResult Create([Bind(Include = "Id,Title,CollectionNumber,Description,PhaseId,Rating,BoxOffice")] Movie movie)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace MarvelPhases.Controllers
         // POST: Movies/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,CollectionNumber,ReleaseDate,Description,PhaseId,Rating,BoxOffice")] Movie movie)
+        public ActionResult Edit([Bind(Include = "Id,Title,CollectionNumber,Description,PhaseId,Rating,BoxOffice")] Movie movie)
         {
             if (ModelState.IsValid)
             {
