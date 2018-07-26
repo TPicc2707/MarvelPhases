@@ -6,22 +6,23 @@
     <title>Marvel History</title>
     <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
     @Styles.Render("~/Content/Site.css")
-    @Styles.Render("~/Content/bootstrap.css")
+    @Styles.Render("~/Content/bootstrap.css")  @*Main Styling*@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
+    @*Navbar*@
     <nav class="navbar navbar-findcond navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
                     <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
 
-
-                @Html.ActionLink("Marvel Phases", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @*Button Links*@
+                @Html.ActionLink("Marvel Phases", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })  
             </div>
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">

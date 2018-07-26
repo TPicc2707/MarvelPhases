@@ -27,7 +27,7 @@ select,
 textarea {
     max-width: 280px;
 }
-
+/* NAVBAR */
 nav.navbar-findcond {
     background: #fff;
     border-color: red;
@@ -120,7 +120,12 @@ nav.navbar-findcond span.badge.new {
     margin-right: 20px;
     margin-top: 15px;
 }
+/* End of Navbar*/
 
+
+
+
+/* Picture Carousel */
 .container {
     width: 100%;
     height: 100%;
@@ -449,6 +454,9 @@ nav.navbar-findcond span.badge.new {
     }
 }
 
+/* End of Picture Carousel*/
+
+/* Buttons */
 .button {
     font-weight: bold;
     border-radius: 12px;
@@ -530,6 +538,9 @@ nav.navbar-findcond span.badge.new {
     color: black;
 }
 
+/* End of Buttons*/
+
+/* Table */
 #list {
     width: 100%;
     padding-bottom: 20px;
@@ -575,7 +586,10 @@ nav.navbar-findcond span.badge.new {
 
 
 }
+/* End of Table */
 
+
+/* Form  */
 .form-signin {
   max-width: 420px;
   padding: 30px 38px;
@@ -653,4 +667,6 @@ input[type="password"] {
     margin-right: auto ;
     
 }
+
+/* End of Form */
 
