@@ -10,6 +10,7 @@ namespace MarvelPhases.Models
 {
     public class Movie
     {
+        //Properties for each specific movie
         public int Id { get; set; }
         public string Title { get; set; }
         [DisplayName("Collection Number")]

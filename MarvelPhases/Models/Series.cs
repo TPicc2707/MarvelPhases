@@ -8,6 +8,7 @@ namespace MarvelPhases.Models
 {
     public class Series
     {
+        //Adding properties to each specific series
         public int Id { get; set; }
         public string Title { get; set; }
         [DisplayName("Series Number")]

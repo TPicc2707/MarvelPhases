@@ -28,6 +28,8 @@ namespace MarvelPhases.Migrations
             //    );
             //
 
+
+            //Add Phases to database
             context.Phases.AddOrUpdate(
                 p => p.Id,
                 new Phase { Id = 1, PhaseName = "Phase 1" },
@@ -35,6 +37,7 @@ namespace MarvelPhases.Migrations
                 new Phase { Id = 3, PhaseName = "Phase 3" }
                 );
 
+            //Add specific movies to the database
             context.Movies.AddOrUpdate(
                 new Movie { Id = 1, Title = "Iron Man", CollectionNumber = 1, PhaseId = 1, Rating = 8, BoxOffice = 585174222, Description = "Tony Stark. Genius, billionaire, playboy, philanthropist. Son of legendary inventor and weapons contractor Howard Stark. When Tony Stark is assigned to give a weapons presentation to an Iraqi unit led by Lt. Col. James Rhodes, he's given a ride on enemy lines. That ride ends badly when Stark's Humvee that he's riding in is attacked by enemy combatants. He survives - barely - with a chest full of shrapnel and a car battery attached to his heart. In order to survive he comes up with a way to miniaturize the battery and figures out that the battery can power something else. Thus Iron Man is born. He uses the primitive device to escape from the cave in Iraq. Once back home, he then begins work on perfecting the Iron Man suit. But the man who was put in charge of Stark Industries has plans of his own to take over Tony's technology for other matters." },
                 new Movie { Id = 2, Title = "The Incredible Hulk", CollectionNumber = 1, PhaseId = 1, Rating = 7, BoxOffice = 263427551, Description = "Depicting the events after the Gamma Bomb. 'The Incredible Hulk' tells the story of Dr Bruce Banner, who seeks a cure to his unique condition, which causes him to turn into a giant green monster under emotional stress.Whilst on the run from military which seeks his capture, Banner comes close to a cure.But all is lost when a new creature emerges; The Abomination." },
@@ -58,6 +61,7 @@ namespace MarvelPhases.Migrations
                 new Movie { Id = 20, Title = "Ant-Man & the Wasp", CollectionNumber = 2, PhaseId = 3, Rating = 7, BoxOffice = 356866453, Description = "In the aftermath of 'Captain America: Civil War,' Scott Lang grapples with the consequences of his choices as both a Super Hero and a father. As he struggles to re-balance his home life with his responsibilities as Ant-Man, he's confronted by Hope van Dyne and Dr. Hank Pym with an urgent new mission. Scott must once again put on the suit and learn to fight alongside The Wasp as the team works together to uncover secrets from their past." }
                 );
 
+            //Add specific series to the database
             context.Series.AddOrUpdate(
                 new Series { Id = 1, Title = "Agent Carter", SeriesNumber = 1, PhaseId = 1, Rating = 8, TvService = "ABC", Description = "The war is over and almost everyone has experienced a loss. Agent Peggy Carter has lost the love of her life. To top it off, when billionaire Howard Stark is accused of Treason, he secretly employs her to clear his name. With the help of Stark's butler, she embarks on a whimsical journey full of deceit, murder and controversy with a side of wise-cracking roommates." },
                 new Series { Id = 2, Title = "Agent Carter", SeriesNumber = 2, PhaseId = 1, Rating = 8, TvService = "ABC", Description = "The war is over and almost everyone has experienced a loss. Agent Peggy Carter has lost the love of her life. To top it off, when billionaire Howard Stark is accused of Treason, he secretly employs her to clear his name. With the help of Stark's butler, she embarks on a whimsical journey full of deceit, murder and controversy with a side of wise-cracking roommates." },

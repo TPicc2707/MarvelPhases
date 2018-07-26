@@ -36,9 +36,9 @@ namespace MarvelPhases.Models
             return new ApplicationDbContext();
         }
 
-        public DbSet<Movie> Movies { get; set; }
-
-        public DbSet<Phase> Phases { get; set; }
+        public DbSet<Movie> Movies { get; set; }  
+         
+        public DbSet<Phase> Phases { get; set; }    //propreties so that tables can be added to the database
 
         public DbSet<Series> Series { get; set; }
 
