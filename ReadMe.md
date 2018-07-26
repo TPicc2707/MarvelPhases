@@ -1,4 +1,9 @@
-﻿My project is about the History of Marvel Movies and Series.  
+﻿README
+
+History of Marvel Television
+
+
+My project is about the History of Marvel Movies and Series.  
 It is mainly about the superheroes movies that have came out most recently.  
 I created a database to story the movies in order depending on which phase the movie or series took place.  
 Right now there are only 3 phases for the movies and phases but in the future if there are more phase, they simply can be add to the database through the application itself.
