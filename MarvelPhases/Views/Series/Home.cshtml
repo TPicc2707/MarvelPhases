@@ -24,9 +24,9 @@
     </div>
     <div style="text-align: center; ">
         <a class="button button1" href="@Url.Action("Index","Series")">All Series</a>
-        <a class="button button2" href="@Url.Action("#","#")">Phase 1</a>
-        <a class="button button3" href="@Url.Action("#","#")">Phase 2</a>
-        <a class="button button4" href="@Url.Action("#","#")">Phase 3</a>
+        @Html.ActionLink("Phase 1", "SortPhase", "Series", new { phaseThreshold = 1 }, new { @class = "button button2" })
+        @Html.ActionLink("Phase 2", "SortPhase", "Series", new { phaseThreshold = 2 }, new { @class = "button button3" })
+        @Html.ActionLink("Phase 3", "SortPhase", "Series", new { phaseThreshold = 3 }, new { @class = "button button4" })
     </div>
 </body>
 </html>

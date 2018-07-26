@@ -19,10 +19,45 @@ namespace MarvelPhases.Controllers
         }
 
         // GET: Movies
-        public ActionResult Index()
+        public ActionResult Index(string searchString, string sortOrder)
         {
-            var movie = db.Movies.Include(m => m.Phase);
-            return View(movie.ToList());
+            ViewBag.SortTitle = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "Title";
+            ViewBag.SortRating = sortOrder == "Rating" ? "rating_desc" : "Rating";
+            ViewBag.SortBoxOffice = sortOrder == "Box Office" ? "boxoffice_desc" : "Box Office";
+
+            var movies = from m in db.Movies.Include(m => m.Phase) select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                movies = movies.Where(m => m.Title.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "Title":
+                    movies = movies.OrderBy(m => m.Title);
+                    break;
+                case "title_desc":
+                    movies = movies.OrderByDescending(m => m.Title);
+                    break;
+                case "Rating":
+                    movies = movies.OrderBy(m => m.Rating);
+                    break;
+                case "rating_desc":
+                    movies = movies.OrderByDescending(m => m.Rating);
+                    break;
+                case "Box Office":
+                    movies = movies.OrderBy(m => m.BoxOffice);
+                    break;
+                case "boxoffice_desc":
+                    movies = movies.OrderByDescending(m => m.BoxOffice);
+                    break;
+                default:
+                    movies = movies.OrderBy(m => m.Id);
+                    break;
+            }
+
+            return View(movies.ToList());
         }
 
         // GET: Movies/Details/5
@@ -136,5 +171,13 @@ namespace MarvelPhases.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult SortPhase(int phaseThreshold)
+        {
+            var movies = db.Movies.Where(m => m.PhaseId == phaseThreshold).ToList();
+
+            return View(movies);
+        }
+
     }
 }

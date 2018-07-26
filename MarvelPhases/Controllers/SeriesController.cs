@@ -16,12 +16,40 @@ namespace MarvelPhases.Controllers
         public ActionResult Home()
         {
             return View();
-        } 
+        }
 
         // GET: Series
-        public ActionResult Index()
+        public ActionResult Index(string searchString, string sortOrder)
         {
-            var series = db.Series.Include(m => m.Phase);
+            ViewBag.SortTitle = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "Title";
+            ViewBag.SortRating = sortOrder == "Rating" ? "rating_desc" : "Rating";
+
+            var series = from s in db.Series.Include(s => s.Phase) select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                series = series.Where(s => s.Title.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "Title":
+                    series = series.OrderBy(s => s.Title);
+                    break;
+                case "title_desc":
+                    series = series.OrderByDescending(s => s.Title);
+                    break;
+                case "Rating":
+                    series = series.OrderBy(s => s.Rating);
+                    break;
+                case "rating_desc":
+                    series = series.OrderByDescending(m => m.Rating);
+                    break;
+                default:
+                    series = series.OrderBy(m => m.Id);
+                    break;
+            }
+
             return View(series.ToList());
         }
 
@@ -138,5 +166,14 @@ namespace MarvelPhases.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult SortPhase(int phaseThreshold)
+        {
+            var series = db.Series.Where(s => s.PhaseId == phaseThreshold).ToList();
+
+            return View(series);
+
+        }
+
     }
 }

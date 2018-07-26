@@ -1,7 +1,7 @@
 ﻿@model MarvelPhases.Models.Phase
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Detail";
 }
 
 <style>
@@ -35,14 +35,6 @@
 
     </table>
     <div style="margin: 30px;">
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
-
-            <div class="form-actions no-color">
-                <input type="submit" value="Delete" class="btn btn-danger" /> 
-                <a class="backbutton" href="@Url.Action("Index", "Phases")">Go Back</a>
-            </div>
-        }
+        <a class="backbutton" href="@Url.Action("Index","Phases")">Go Back</a>
     </div>
 </div>

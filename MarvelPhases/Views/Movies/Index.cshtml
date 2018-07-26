@@ -6,6 +6,13 @@
 <div style="margin: 30px 5px;">
     <a class="backbutton" href="@Url.Action("Home","Movies")">Go Back</a>
     <a class="backbutton" href="@Url.Action("Create","Movies")">New Movie</a>
+    @using (Html.BeginForm())
+    {
+        <p style="text-align: right">
+            Find by name: @Html.TextBox("SearchString")
+            <input type="submit" value="Search" />
+        </p>
+    }
 </div>
 <table id="list" align="center">
     <tr>
@@ -13,7 +20,7 @@
     </tr>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Title)
+            @Html.ActionLink("Title", "Index", new { sortOrder = ViewBag.SortTitle })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CollectionNumber)
@@ -22,7 +29,10 @@
             @Html.DisplayNameFor(model => model.Phase.Id)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Rating)
+            @Html.ActionLink("Rating", "Index", new { sortOrder = ViewBag.SortRating })
+        </th>
+        <th>
+            @Html.ActionLink("Box Office", "Index", new { sortOrder = ViewBag.SortBoxOffice })
         </th>
         <th></th>
     </tr>
@@ -40,6 +50,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Rating)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BoxOffice);
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

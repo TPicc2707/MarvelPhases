@@ -3,64 +3,65 @@
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>Details</h2>
-
+<style>
+    th{
+        padding: 5px;
+        text-align: left;
+        width: 30%;
+    } td {
+        padding: 5px;
+        text-align: left;
+    }
+</style>
 <div>
-    <h4>Movie</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CollectionNumber)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CollectionNumber)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PhaseId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PhaseId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Rating)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Rating)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BoxOffice)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BoxOffice)
-        </dd>
-
-    </dl>
+    <table id="list" style="margin: 30px; width: 100%">
+        <tr>
+            <th colspan="2">
+                <h1 style="text-align: center">@Html.DisplayFor(model => model.Title)</h1>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CollectionNumber)
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.CollectionNumber)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PhaseId)
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.PhaseId)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating)
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.Rating)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BoxOffice)
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.BoxOffice)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.Description)
+            </td>
+        </tr>
+    </table>
+    <div style="margin: 30px;">
+    <a class="backbutton" href="@Url.Action("Index","Movies")">Go Back</a>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

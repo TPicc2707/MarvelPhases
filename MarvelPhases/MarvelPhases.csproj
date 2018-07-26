@@ -266,7 +266,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Phases\Index.cshtml" />
     <Content Include="Views\Phases\Create.cshtml" />
-    <Content Include="Views\Phases\Detail.cshtml" />
+    <Content Include="Views\Phases\Details.cshtml" />
     <Content Include="Views\Phases\Edit.cshtml" />
     <Content Include="Views\Phases\Delete.cshtml" />
     <Content Include="Views\Movies\Create.cshtml" />
@@ -282,6 +282,8 @@
     <Content Include="Views\Movies\Home.cshtml" />
     <Content Include="Views\Phases\Home.cshtml" />
     <Content Include="Views\Series\Home.cshtml" />
+    <Content Include="Views\Movies\SortPhase.cshtml" />
+    <Content Include="Views\Series\SortPhase.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

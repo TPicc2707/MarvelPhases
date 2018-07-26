@@ -1,15 +1,14 @@
-﻿@model IEnumerable<MarvelPhases.Models.Series>
+﻿@model IEnumerable<MarvelPhases.Models.Movie>
 
 @{
     ViewBag.Title = "Index";
 }
 
 <div style="margin: 30px 5px;">
-    <a class="backbutton" href="@Url.Action("Home","Series")">Go Back</a>
-    <a class="backbutton" href="@Url.Action("Create","Series")">New Series</a>
+    <a class="backbutton" href="@Url.Action("Home","Movies")">Go Back</a>
     @using (Html.BeginForm())
     {
-        <p style="text-align: right;">
+        <p style="text-align: right">
             Find by name: @Html.TextBox("SearchString")
             <input type="submit" value="Search" />
         </p>
@@ -17,23 +16,23 @@
 </div>
 <table id="list" align="center">
     <tr>
-        <td colspan="7" id="header"><h1>All Series</h1></td>
+        <td colspan="6" id="header"><h1>Movies</h1></td>
     </tr>
     <tr>
         <th>
-            @Html.ActionLink("Title", "Index", new { sortOrder = ViewBag.SortTitle })
+            @Html.DisplayNameFor(model => model.Title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SeriesNumber)
+            @Html.DisplayNameFor(model => model.CollectionNumber)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Phase.Id)
         </th>
         <th>
-            @Html.ActionLink("Rating", "Index", new { sortOrder = ViewBag.SortRating })
+            @Html.DisplayNameFor(model => model.Rating)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TvService)
+           @Html.DisplayNameFor(model => model.BoxOffice)
         </th>
         <th></th>
     </tr>
@@ -45,7 +44,7 @@
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SeriesNumber)
+                @Html.DisplayFor(modelItem => item.CollectionNumber)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Phase.Id)
@@ -54,7 +53,7 @@
                 @Html.DisplayFor(modelItem => item.Rating)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TvService)
+                @Html.DisplayFor(modelItem => item.BoxOffice);
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
