@@ -11,7 +11,7 @@ namespace MarvelPhases.Controllers
 {
     public class MoviesController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext(); //instantiate the database
 
         public ActionResult Home()
         {
@@ -22,38 +22,38 @@ namespace MarvelPhases.Controllers
         public ActionResult Index(string searchString, string sortOrder)
         {
             ViewBag.SortTitle = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "Title";
-            ViewBag.SortRating = sortOrder == "Rating" ? "rating_desc" : "Rating";
+            ViewBag.SortRating = sortOrder == "Rating" ? "rating_desc" : "Rating";                              //Adding a sort function
             ViewBag.SortBoxOffice = sortOrder == "Box Office" ? "boxoffice_desc" : "Box Office";
 
             var movies = from m in db.Movies.Include(m => m.Phase) select m;
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                movies = movies.Where(m => m.Title.Contains(searchString));
+                movies = movies.Where(m => m.Title.Contains(searchString));              //Search function
             }
 
             switch (sortOrder)
             {
                 case "Title":
-                    movies = movies.OrderBy(m => m.Title);
+                    movies = movies.OrderBy(m => m.Title);               //Ordering the title           
                     break;
                 case "title_desc":
-                    movies = movies.OrderByDescending(m => m.Title);
+                    movies = movies.OrderByDescending(m => m.Title);    //Descending ordering the title
                     break;
                 case "Rating":
-                    movies = movies.OrderBy(m => m.Rating);
+                    movies = movies.OrderBy(m => m.Rating);         //ordering the rating
                     break;
                 case "rating_desc":
-                    movies = movies.OrderByDescending(m => m.Rating);
+                    movies = movies.OrderByDescending(m => m.Rating);         //from least to greatest rating
                     break;
                 case "Box Office":
-                    movies = movies.OrderBy(m => m.BoxOffice);
+                    movies = movies.OrderBy(m => m.BoxOffice);  //ordering the box office
                     break;
                 case "boxoffice_desc":
-                    movies = movies.OrderByDescending(m => m.BoxOffice);
+                    movies = movies.OrderByDescending(m => m.BoxOffice);   //Descending ordering the box office
                     break;
                 default:
-                    movies = movies.OrderBy(m => m.Id);
+                    movies = movies.OrderBy(m => m.Id);  //start by ordering the Id
                     break;
             }
 
@@ -97,7 +97,7 @@ namespace MarvelPhases.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.PhaseId = new SelectList(db.Phases, "Id", "PhaseName", movie.PhaseId);
+            ViewBag.PhaseId = new SelectList(db.Phases, "Id", "PhaseName", movie.PhaseId);  //adding foreign key
 
             return View(movie);
         }
@@ -163,6 +163,7 @@ namespace MarvelPhases.Controllers
             return RedirectToAction("Index");
         }
 
+        //disposing the data 
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -174,7 +175,7 @@ namespace MarvelPhases.Controllers
 
         public ActionResult SortPhase(int phaseThreshold)
         {
-            var movies = db.Movies.Where(m => m.PhaseId == phaseThreshold).ToList();
+            var movies = db.Movies.Where(m => m.PhaseId == phaseThreshold).ToList();    //listing the specific phase selected
 
             return View(movies);
         }

@@ -20,7 +20,7 @@ namespace MarvelPhases.Controllers
          // GET: Phases
         public ActionResult Index()
         {
-            return View(db.Phases.ToList());
+            return View(db.Phases.ToList());  //list the phase
         }
 
         // GET: Phases/Details/5
@@ -44,6 +44,7 @@ namespace MarvelPhases.Controllers
              return View();
          }
 
+        //Post: Phase
          [HttpPost]
          [ValidateAntiForgeryToken]
          public ActionResult Create([Bind(Include = "Id, PhaseName")] Phase phase)
@@ -72,7 +73,8 @@ namespace MarvelPhases.Controllers
            }
            return View(phase);
         }
-
+       
+        //Post: Phase
        [HttpPost]
        [ValidateAntiForgeryToken]
        public ActionResult Edit([Bind(Include = "Id,PhaseName")] Phase phase)
@@ -85,7 +87,7 @@ namespace MarvelPhases.Controllers
            }
            return View(phase);
        }
-
+        //Get: Phases/Delete
        public ActionResult Delete(int? id)
        {
            if (id == null)
@@ -99,7 +101,7 @@ namespace MarvelPhases.Controllers
            }
            return View(phase);
        }
-
+        //Post delete
        [HttpPost, ActionName("Delete")]
        [ValidateAntiForgeryToken]
        public ActionResult DeleteConfirmed(int id)
@@ -109,7 +111,7 @@ namespace MarvelPhases.Controllers
            db.SaveChanges();
            return RedirectToAction("Index");
         }
-
+        //disposing data
        protected override void Dispose(bool disposing)
        {
            if (disposing)

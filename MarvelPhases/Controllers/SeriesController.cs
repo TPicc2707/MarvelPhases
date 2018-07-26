@@ -11,7 +11,7 @@ namespace MarvelPhases.Controllers
 {
     public class SeriesController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();  //instantiate the database
 
         public ActionResult Home()
         {
@@ -22,31 +22,31 @@ namespace MarvelPhases.Controllers
         public ActionResult Index(string searchString, string sortOrder)
         {
             ViewBag.SortTitle = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "Title";
-            ViewBag.SortRating = sortOrder == "Rating" ? "rating_desc" : "Rating";
+            ViewBag.SortRating = sortOrder == "Rating" ? "rating_desc" : "Rating";                    //Adding a sort function
 
             var series = from s in db.Series.Include(s => s.Phase) select s;
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                series = series.Where(s => s.Title.Contains(searchString));
+                series = series.Where(s => s.Title.Contains(searchString));           //Search function
             }
 
             switch (sortOrder)
             {
-                case "Title":
-                    series = series.OrderBy(s => s.Title);
+                case "Title": 
+                    series = series.OrderBy(s => s.Title);       //Ordering the title 
                     break;
                 case "title_desc":
-                    series = series.OrderByDescending(s => s.Title);
+                    series = series.OrderByDescending(s => s.Title);      //Descending ordering the title
                     break;
                 case "Rating":
-                    series = series.OrderBy(s => s.Rating);
+                    series = series.OrderBy(s => s.Rating);            //ordering the rating
                     break;
-                case "rating_desc":
-                    series = series.OrderByDescending(m => m.Rating);
+                case "rating_desc":  
+                    series = series.OrderByDescending(m => m.Rating);         //from least to greatest rating
                     break;
                 default:
-                    series = series.OrderBy(m => m.Id);
+                    series = series.OrderBy(m => m.Id);              //start by ordering the Id
                     break;
             }
 
@@ -91,7 +91,7 @@ namespace MarvelPhases.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.PhaseId = new SelectList(db.Phases, "Id", "PhaseName", series.PhaseId);
+            ViewBag.PhaseId = new SelectList(db.Phases, "Id", "PhaseName", series.PhaseId);       //adding foreign key
 
             return View(series);
         }
@@ -158,6 +158,7 @@ namespace MarvelPhases.Controllers
             return RedirectToAction("Index");
         }
 
+        //disposing the data 
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -169,7 +170,7 @@ namespace MarvelPhases.Controllers
 
         public ActionResult SortPhase(int phaseThreshold)
         {
-            var series = db.Series.Where(s => s.PhaseId == phaseThreshold).ToList();
+            var series = db.Series.Where(s => s.PhaseId == phaseThreshold).ToList();             //listing the specific phase selected
 
             return View(series);
 
