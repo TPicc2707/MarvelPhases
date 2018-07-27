@@ -11,3 +11,6 @@ I separted the movies and series so people can specifly see what Marvel movies t
 You look at each movie or series specifically to see what number in the collection it is, the rating of it, and description of it.
 For movies I add how much in box office money they earned.
 For Tv Series I add what service provider contians the series so you could possibly watch it in the future.  
+
+
+When you open the project all you have to do is press run and it will open your broswer with the application.
