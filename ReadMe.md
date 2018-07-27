@@ -13,4 +13,10 @@ For movies I add how much in box office money they earned.
 For Tv Series I add what service provider contians the series so you could possibly watch it in the future.  
 
 
-When you open the project all you have to do is press run and it will open your broswer with the application.
+To Do when you open the project:
+-Open Tools in Microsoft Visual Studio
+-Go to NuGet Package Manager
+-Click on Package Manager Console
+-In the console, type in update-database
+-The seed method will run and enter data into the database
+-Then press run and the application will open in your browser
